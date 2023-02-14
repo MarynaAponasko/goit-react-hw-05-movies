@@ -59,23 +59,25 @@ const MovieDetailsPage = () => {
       >
         Go back
       </button>
-      <div className={s.mainContainer}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movieInfo?.poster_path}`}
-          alt={movieInfo?.title}
-          width="250"
-        />
-        <div>
-          <h3 className={s.title}>
-            {movieInfo?.title} ({createYear()})
-          </h3>
-          <p className={s.text}>User Score: {changeScore()}%</p>
-          <h4 className={s.secondTitle}>Overview</h4>
-          <p className={s.text}>{movieInfo?.overview}</p>
-          <h4 className={s.secondTitle}>Genres </h4>
-          <p className={s.text}> {changeGenres()} </p>
+      {movieInfo && (
+        <div className={s.mainContainer}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieInfo?.poster_path}`}
+            alt={movieInfo?.title}
+            width="250"
+          />
+          <div>
+            <h3 className={s.title}>
+              {movieInfo?.title} ({createYear()})
+            </h3>
+            <p className={s.text}>User Score: {changeScore()}%</p>
+            <h4 className={s.secondTitle}>Overview</h4>
+            <p className={s.text}>{movieInfo?.overview}</p>
+            <h4 className={s.secondTitle}>Genres </h4>
+            <p className={s.text}> {changeGenres()} </p>
+          </div>
         </div>
-      </div>
+      )}
 
       <ul>
         Additional information
@@ -86,7 +88,7 @@ const MovieDetailsPage = () => {
         </li>
         <li>
           <Link to="reviews" state={{ from }}>
-            Reviews{' '}
+            Reviews
           </Link>
         </li>
       </ul>
