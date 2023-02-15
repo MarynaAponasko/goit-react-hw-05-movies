@@ -5,7 +5,7 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetchTrendingList();
-  });
+  }, []);
 
   const fetchTrendingList = async () => {
     await fetchTrendingMovies()
